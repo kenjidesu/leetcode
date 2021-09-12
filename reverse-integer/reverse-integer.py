@@ -10,7 +10,7 @@ class Solution(object):
         # reverse num mathematically
         rev_num = 0
         while x > 0:
-            # gets the first digit
+            # gets the last digit
             sgl_dig = x % 10
             # appends to rev_num
             rev_num = (rev_num * 10) + sgl_dig
