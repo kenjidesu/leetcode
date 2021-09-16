@@ -1,3 +1,10 @@
+"""
+What is p is q?
+It is just to return True if p == None and q == None else False.
+
+It recursively checks each node of p and q and compare it to each other and if one of the
+node are not equal to the other node it'll return False.
+"""
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):
