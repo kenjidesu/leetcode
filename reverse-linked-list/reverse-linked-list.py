@@ -5,22 +5,23 @@
 #         self.next = next
 class Solution(object):
     def reverseList(self, head):
-        vals = []
-        cpy = head
-        nn = head
+        # checks if head exists
+        if head is None:
+            return head
         
-        # gets all the value of Linked-list
-        while nn:
-            vals.append(nn.val)
-            nn = nn.next
+        curr = head
+        sec = head.next
         
-        # updates the val of head
-        i = len(vals)-1
-        while cpy:
-            cpy.val = vals[i]
-            cpy = cpy.next
-            i -= 1
-            
+        # reverse nodes
+        while curr and sec:
+            # connect to the next of sec
+            curr.next = sec.next
+            # connect to the head
+            sec.next = head
+            # set a new head
+            head = sec
+            # update sec
+            sec = curr.next
+        
         return head
-        
         
