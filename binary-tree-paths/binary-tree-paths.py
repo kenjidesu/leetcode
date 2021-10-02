@@ -21,7 +21,7 @@ class Solution(object):
             arr.append(sti)
             return
         
-        # Traverse to all children of nodes and appending to sti
+        # Traverse to all children of root and appending to sti
         if node.left is not None:
             self.recurTree(node.left, sti + "->", arr)
             
