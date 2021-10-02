@@ -5,7 +5,6 @@
 #         self.next = next
 class Solution(object):
     def removeNthFromEnd(self, head, n):
-        
         # count nodes
         i = 0
         curr = head
