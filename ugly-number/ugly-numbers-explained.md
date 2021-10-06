@@ -16,7 +16,7 @@ while n % 5 == 0: n /= 5
 
 In this code, we are checking if *n* is divisible by the prime factors `2`, `3`, and `5`. But why do we update *n*?. We update *n* to get the lowest value of *n* divided by the given prime factors. How can we know if it's divisible by this prime factors? Well, If we divided the lowest value of *n* by the prime factors that is divisible to it, we will get the value of 1. And if the value is not 1, that means *n* is not divisible by this given prime factors.
 
-![263uglynumber](img/263uglynumber.PNG)
+![263uglynumber](/img/263uglynumber.PNG)
 
 To finish things up, we just need to know if *n* is equal to 1. And if it's 1 then it's an Ugly Number because It is divisible by this all given prime factors, otherwise it's not an Ugly number.
 
