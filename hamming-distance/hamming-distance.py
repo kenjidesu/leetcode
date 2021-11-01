@@ -15,9 +15,4 @@ class Solution(object):
         
         # if xi != yi, adds 1
         return sum(xi != yi for xi, yi in zip(bx, by))
-            
-                
-            
-        
-        
         
