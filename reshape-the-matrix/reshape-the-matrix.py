@@ -1,18 +1,17 @@
 class Solution(object):
     def matrixReshape(self, mat, r, c):
-        vals = []
-        for i in range(len(mat)):
-            for j in range(len(mat[i])):
-                vals.append(mat[i][j])
+        orgr = len(mat)
+        colc = len(mat[0])
         
-        if c * r != len(vals): return mat
+        if orgr * colc != r * c:
+            return mat
         
-        arr = []
+        outarr = [[0 for _ in range(c)] for _ in range(r)]
         cc = 0
-        for i in range(r):
-            tmp = []
-            for j in range(c):
-                tmp.append(vals[cc])
+        for i in range(orgr):
+            for j in range(colc):
+                outarr[cc // c][cc % c] = mat[i][j]
                 cc += 1
-            arr.append(tmp)
-        return arr
+                
+        return outarr
+        
