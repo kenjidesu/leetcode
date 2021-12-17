@@ -1,23 +1,18 @@
 class Solution(object):
     def matrixReshape(self, mat, r, c):
-        # Gets all the value in mat
-        nums = []
+        vals = []
         for i in range(len(mat)):
             for j in range(len(mat[i])):
-                nums.append(mat[i][j])
+                vals.append(mat[i][j])
         
-        # return original matrix if reshape operation is not possible
-        if r * c != len(nums): return mat
+        if c * r != len(vals): return mat
         
-        # Reshape matrix
         arr = []
-        q = 0   # Track on what value to put in matrix
+        cc = 0
         for i in range(r):
-            temp = []
+            tmp = []
             for j in range(c):
-                temp.append(nums[q])
-                q += 1
-            # append the column row to the row array
-            arr.append(temp)
-            
+                tmp.append(vals[cc])
+                cc += 1
+            arr.append(tmp)
         return arr
