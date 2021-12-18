@@ -1,28 +1,29 @@
 class Solution(object):
-    def isValidSudoku(self, board):        
+    def isValidSudoku(self, board):
+        # Checks row and column
         for i in range(9):
-            st1, st2 = set(), set()
+            col, row = set(), set()
             for j in range(9):
-                # Checks Columns
-                if board[i][j].isnumeric():
-                    if board[i][j] in st1:
+                if board[i][j].isalnum():
+                    if board[i][j] in col:
                         return False
-                    st1.add(board[i][j])
-                # Checks Columns
-                if board[j][i].isnumeric():
-                    if board[j][i] in st2:
-                        return False
-                    st2.add(board[j][i])
+                    col.add(board[i][j])
                     
-        # Checks 3 x 3 grid 
-        for i in [0, 3, 6]:
-            for j in [0, 3, 6]:
-                st3 = set()
+                if board[j][i].isalnum():
+                    if board[j][i] in row:
+                        return False
+                    row.add(board[j][i])
+        
+        # Checks 3x3 grid
+        for i in range(0, 9, 3):
+            for j in range(0, 9, 3):
+                grid = set()
                 for k in range(3):
                     for l in range(3):
-                        if board[i+k][j+l].isnumeric():
-                            if board[i+k][j+l] in st3:
+                        if board[i+k][j+l].isalnum():
+                            if board[i+k][j+l] in grid:
                                 return False
-                            st3.add(board[i+k][j+l])
+                            grid.add(board[i+k][j+l])
                             
         return True
+        
