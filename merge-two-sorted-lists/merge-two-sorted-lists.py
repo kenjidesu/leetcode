@@ -4,29 +4,23 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
-    def mergeTwoLists(self, l1, l2):
-        # create a dummynode
-        dummyNode = ListNode(val=-1)
-        head = dummyNode
-
-        while l1 != None and l2 != None:
-            # goes to the next of l1 if l1 < l2
-            if l1.val < l2.val:
-                dummyNode.next = l1
-                l1 = l1.next
-            # goes to the next of l2 if l2 > l1
+    def mergeTwoLists(self, list1, list2):
+        dummy = ListNode(-1)
+        head = dummy
+        
+        while list1 and list2:
+            if list1.val < list2.val:
+                dummy.next = ListNode(list1.val)
+                list1 = list1.next
             else:
-                dummyNode.next = l2
-                l2 = l2.next
+                dummy.next = ListNode(list2.val)
+                list2 = list2.next
             
-            # updates the dummynode
-            dummyNode = dummyNode.next
-        
-        # It appends the last val of l1 or l2
-        if l1 != None:
-            dummyNode.next = l1
+            dummy = dummy.next
+            
+        if list1:
+            dummy.next = list1
         else:
-            dummyNode.next = l2
-        
-        # returns the dummyNode without the -1
+            dummy.next = list2
+            
         return head.next
