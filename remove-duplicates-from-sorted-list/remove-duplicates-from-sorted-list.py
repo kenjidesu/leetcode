@@ -6,25 +6,16 @@
 class Solution(object):
     def deleteDuplicates(self, head):
         if head is None:
-            return
-        
-        # return head if there's only 1 node
-        if head.next is None:
             return head
         
-        curr = head         # slow head
-        pred = head.next    # fast head
-        
-        while curr.next:
-            # if slow == fast, updates the next node of curr,
-            # to get rid of the duplicate
-            if curr.val == pred.val:
-                curr.next = pred.next
-                pred = None
-                pred = curr.next
-            # update curr and pred
+        cur, pred, = head, head.next
+        while cur.next:
+            if cur.val == pred.val:
+                cur.next = pred.next
+                pred = cur.next
             else:
-                curr = pred
+                cur = pred
                 pred = pred.next
-        
+                
         return head
+        
