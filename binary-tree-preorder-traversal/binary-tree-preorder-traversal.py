@@ -6,15 +6,13 @@
 #         self.right = right
 class Solution(object):
     def preorderTraversal(self, root):
-        # Iterative Pre-order Traversal
-        stck, vl = [root], []
-        while stck:
-            # pop() stck
-            node = stck.pop()
-            if node:
-                # append to vl
-                vl.append(node.val)
-                stck.append(node.right)
-                stck.append(node.left)
+        arr = []
+        def binTree(root):
+            if root:
+                arr.append(root.val)
+                binTree(root.left)
+                binTree(root.right)
         
-        return vl
+        binTree(root)
+        return arr
+        
