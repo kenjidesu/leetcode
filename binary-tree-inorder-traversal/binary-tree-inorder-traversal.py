@@ -7,16 +7,11 @@
 class Solution(object):
     def inorderTraversal(self, root):
         arr = []
-        # start the recursion
-        self.inorder(root, arr)
+        def inods(root):
+            if root:
+                inods(root.left)
+                arr.append(root.val)
+                inods(root.right)
+        inods(root) 
         return arr
-    
-    def inorder(self, root, arr):
-        if root:
-            # goes to the left-end of the root
-            self.inorder(root.left, arr)
-            # appends the val of root
-            arr.append(root.val)
-            # goes to the right-end of the root
-            self.inorder(root.right, arr)
         
