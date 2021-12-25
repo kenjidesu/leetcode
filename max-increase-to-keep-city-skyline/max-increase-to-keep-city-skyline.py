@@ -1,17 +1,19 @@
 class Solution(object):
     def maxIncreaseKeepingSkyline(self, grid):
-        transpose = []
-        for i in range(len(grid)):
-            temp = []
-            for j in range(len(grid[i])):
-                temp.append(grid[j][i])
-            transpose.append(temp)    
-            
-        output = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                mn = min(max(grid[i]), max(transpose[j]))
-                output += abs(grid[i][j] - mn)
+        n = len(grid)
+        mx_r = n * [0]
+        mx_c = n * [0]
+        result = 0
+        
+        for i in range(n):
+            for j in range(n):
+                mx_r[i] = max(mx_r[i], grid[i][j])
+                mx_c[j] = max(mx_c[j], grid[i][j])
                 
-        return output
+                
+        for i in range(n):
+            for j in range(n):
+                result += min(mx_r[i], mx_c[j]) - grid[i][j]
+                
+        return result
         
